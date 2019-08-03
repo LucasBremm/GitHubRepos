@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">GitHubRepos</string>
+    <string name="app_name">GitHub Repositories</string>
     <string name="scan">Scan QR Code</string>
     <string name="list_commits">Recent Commits:</string>
     <string name="repositories">Repositories:</string>
     <string name="title_activity_commits">Commits</string>
     <string name="clickRepo">Click in a Repository to see the Commits</string>
+    <string name="clickScan">Click the button bellow to scan a QR Code:</string>
 </resources>

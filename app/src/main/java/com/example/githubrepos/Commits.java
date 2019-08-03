@@ -2,8 +2,11 @@ package com.example.githubrepos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +27,7 @@ public class Commits extends AppCompatActivity {
 
     ListView list_commits;
     TextView textCommits;
+    ProgressBar progressBar;
 
     ArrayList<String> commits;
 
@@ -34,8 +38,15 @@ public class Commits extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commits);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         list_commits = findViewById(R.id.list_commits);
         textCommits = findViewById(R.id.textCommits);
+        progressBar = findViewById(R.id.progressBar2);
+
+        textCommits.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
 
         commits = new ArrayList<>();
 
@@ -64,6 +75,9 @@ public class Commits extends AppCompatActivity {
 
                             ArrayAdapter adapter = new ArrayAdapter<>(Commits.this, android.R.layout.simple_list_item_1, commits);
                             list_commits.setAdapter(adapter);
+                            textCommits.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.INVISIBLE);
+
 
                         }catch(JSONException e){
                             e.printStackTrace();
@@ -78,5 +92,16 @@ public class Commits extends AppCompatActivity {
         });
 
         queue.add(request);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id==android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

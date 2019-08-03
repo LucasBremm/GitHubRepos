@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,6 +35,7 @@ public class UserRepos extends AppCompatActivity {
     ListView list_repos;
     TextView user_name;
     TextView textRepos;
+    TextView textClick;
     ImageView user_image;
 
     ArrayList<Repos> repos;
@@ -50,15 +52,20 @@ public class UserRepos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_repos);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         list_repos = findViewById(R.id.list_repos);
         user_name = findViewById(R.id.user_name);
         textRepos = findViewById(R.id.textRepos);
+        textClick = findViewById(R.id.textClick);
         user_image = findViewById(R.id.user_image);
         progressBar = findViewById(R.id.progressBar);
 
         user_image.setVisibility(View.INVISIBLE);
         user_name.setVisibility(View.INVISIBLE);
         textRepos.setVisibility(View.INVISIBLE);
+        textClick.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
 
         repos = new ArrayList<>();
@@ -136,6 +143,7 @@ public class UserRepos extends AppCompatActivity {
                             user_image.setVisibility(View.VISIBLE);
                             user_name.setVisibility(View.VISIBLE);
                             textRepos.setVisibility(View.VISIBLE);
+                            textClick.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.GONE);
 
                         } catch (JSONException e){
@@ -150,5 +158,16 @@ public class UserRepos extends AppCompatActivity {
         });
 
         queue.add(request);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id==android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

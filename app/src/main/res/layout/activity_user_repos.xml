@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRepos"
+        app:layout_constraintTop_toBottomOf="@+id/textClick"
         app:layout_constraintVertical_bias="0.245" />
 
     <ProgressBar
@@ -83,18 +83,14 @@
         app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/clickRepo"
         android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
-        app:layout_constraintStart_toEndOf="@+id/textRepos"
-        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRepos" />
 </android.support.constraint.ConstraintLayout>
